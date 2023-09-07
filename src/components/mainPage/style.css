@@ -109,4 +109,5 @@
 .custom-table td button.active {
   background-color: rgb(126, 37, 5);
   cursor: not-allowed;
+  outline: none;
 }
