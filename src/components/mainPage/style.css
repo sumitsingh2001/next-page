@@ -1,0 +1,112 @@
+.main-wrapper {
+  width: 100%;
+  height: auto;
+  padding: 60px 56px;
+}
+
+.cart-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.badge {
+  background-color: orangered;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.random-time {
+  padding-top: 36px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.bold-heading {
+  font-size: 36px;
+  font-weight: 600;
+  color: orangered;
+  margin-bottom: 56px;
+}
+
+.table-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  /* user-select: none; */
+
+}
+
+.table-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lsd {
+  color: blue;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.rsd {
+  font-size: 16px;
+  color: #000;
+  font-weight: 600;
+}
+
+.rsd span {
+  font-size: 18px;
+  color: orangered;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+
+.custom-table th,
+.custom-table td {
+
+  min-width: fit-content;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.custom-table th {
+  background-color: #001f3f;
+}
+
+.custom-table td {
+  color: #000;
+  height: 60px;
+}
+
+.custom-table td button {
+  border: none;
+  width: 130px;
+  background-color: orangered;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-table td button:focus {
+  outline: 2px solid red;
+}
+
+.custom-table td button.active {
+  background-color: rgb(126, 37, 5);
+  cursor: not-allowed;
+}
