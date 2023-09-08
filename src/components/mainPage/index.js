@@ -4,10 +4,9 @@ import { tableData } from '../../actions/tableData';
 import { useContextData } from '../../context';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../routes/RoutePaths';
-import { BsCartCheck } from 'react-icons/bs'
+import { BsCartCheck } from 'react-icons/bs';
 
 const MainComponent = () => {
-
   const [data, setData] = useState(tableData);
   const [countdown, setCountdown] = useState(60);
   const [freeSeats, setFreeSeats] = useState(Math.floor(Math.random() * 16));
@@ -24,27 +23,31 @@ const MainComponent = () => {
   }, [countdown]);
 
   const handleBookNow = (item) => {
-    setCartData([...cartData, item]);
-
+    const isItemInCart = cartData.some((cartItem) => cartItem.id === item.id);
+    if (isItemInCart) {
+      alert('Item is already in cart');
+    } else {
+      setCartData([...cartData, item]);
+    }
   };
-
 
   return (
     <>
-      <div className="main-wrapper">
-
+      <div className='main-wrapper'>
         <div className='table-container'>
-          <div className="cart-icon">
+          <div className='cart-icon'>
             <Link to={AppRoute.CART}>
               <BsCartCheck color='#000' fontSize={42} />
               <span className='badge'>{cartData.length}</span>
             </Link>
           </div>
-          <div className="random-time">Time left: {countdown}  seconds</div>
-          <div className="bold-heading">Claim Your Free Trial Class</div>
-          <div className="table-top">
-            <div className="lsd">Class Schedule</div>
-            <div className="rsd">Free seats left: <span>{freeSeats}</span></div>
+          <div className='random-time'>Time left: {countdown} seconds</div>
+          <div className='bold-heading'>Claim Your Free Trial Class</div>
+          <div className='table-top'>
+            <div className='lsd'>Class Schedule</div>
+            <div className='rsd'>
+              Free seats left: <span>{freeSeats}</span>
+            </div>
           </div>
           <table className='custom-table'>
             <thead>
@@ -68,7 +71,9 @@ const MainComponent = () => {
                       {isFull ? (
                         <button className='active'>Full</button>
                       ) : (
-                        <button onClick={() => handleBookNow(item)}>Book Now</button>
+                        <button onClick={() => handleBookNow(item)}>
+                          Book Now
+                        </button>
                       )}
                     </td>
                   </tr>
