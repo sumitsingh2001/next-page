@@ -27,9 +27,15 @@ const MainComponent = () => {
     if (isItemInCart) {
       alert('Item is already in cart');
     } else {
-      setCartData([...cartData, item]);
+      const updatedCartData = [...cartData, item];
+      localStorage.setItem('cartData', JSON.stringify(updatedCartData));
+      setCartData(updatedCartData);
+
+      // setCartData([...cartData, item]);
     }
   };
+
+  const storedCartData = JSON.parse(localStorage.getItem('cartData'));
 
   return (
     <>
@@ -38,7 +44,9 @@ const MainComponent = () => {
           <div className='cart-icon'>
             <Link to={AppRoute.CART}>
               <BsCartCheck color='#000' fontSize={42} />
-              <span className='badge'>{cartData.length}</span>
+              <span className='badge'>
+                {storedCartData ? storedCartData.length : 0}
+              </span>
             </Link>
           </div>
           <div className='random-time'>Time left: {countdown} seconds</div>
