@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Routes as DomRoutes, Route } from 'react-router-dom';
 import { AppRoute } from './RoutePaths';
-import MainComponent from '../components/mainPage';
-import Cart from '../components/cartPage';
+const MainComponent = lazy(() => '../components/mainPage');
+const Cart = lazy(() => '../components/cartPage');
 
 const Routes = () => {
   return (
     <DomRoutes>
-      <Route path={AppRoute.HOME} element={<MainComponent />} />
-      <Route path={AppRoute.CART} element={<Cart />} />
+      <Route
+        path={AppRoute.HOME}
+        element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <MainComponent />
+          </Suspense>
+        }
+      />
+      <Route
+        path={AppRoute.CART}
+        element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <Cart />
+          </Suspense>
+        }
+      />
     </DomRoutes>
   );
 };
